@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Short Video Player</title>
+    <script>
+        const videos = [
+            './assets/1__.webm',
+            './assets/2_ぬ.webm',
+            './assets/3_ん.webm',
+            './assets/4_し.webm',
+            './assets/5_か.webm',
+            './assets/6_の.webm',
+            './assets/7_こ.webm',
+            './assets/8_の.webm',
+            './assets/9_こ.webm',
+            './assets/10_の.webm',
+            './assets/11_こ.webm',
+            './assets/12_こ.webm',
+            './assets/13_し.webm',
+            './assets/14_た.webm',
+            './assets/15_ん.webm',
+            './assets/16_た.webm',
+            './assets/17_ん.webm',
+            './assets/18__.webm',
+            './assets/19__.webm',
+        ];
+
+        let $video;
+        let index = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // start
+            $video = document.querySelector('#video');
+
+            $video.src = videos[index];
+            $video.addEventListener('ended', () => {
+                index = (index + 1) % videos.length;
+                $video.src = videos[index];
+                $video.play();
+            });
+        }, false);
+    </script>
 </head>
 <body>
-$END$
+    <video id="video" controls width="400px">
+    </video>
 </body>
 </html>
